@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>俄罗斯方块游戏</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <!-- 添加Font Awesome图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1><i class="fas fa-cube"></i> 俄罗斯方块</h1>
+        </div>
+        
+        <div class="game-content">
+            <!-- 左侧信息面板 -->
+            <div class="game-side-panel left-panel">
+                <div class="score-panel">
+                    <div class="score-item">
+                        <p class="score-label"><i class="fas fa-trophy"></i> 分数:</p>
+                        <p class="score-value" id="score">0</p>
+                    </div>
+                    <div class="score-item">
+                        <p class="score-label"><i class="fas fa-star"></i> 等级:</p>
+                        <p class="score-value" id="level">1</p>
+                    </div>
+                    <div class="score-item">
+                        <p class="score-label"><i class="fas fa-layer-group"></i> 消除行数:</p>
+                        <p class="score-value" id="lines">0</p>
+                    </div>
+                    <div class="score-item">
+                        <p class="score-label"><i class="fas fa-bolt"></i> 连击:</p>
+                        <p class="score-value" id="combo">0</p>
+                    </div>
+                </div>
+                
+                <!-- 保留方块功能 -->
+                <div class="hold-panel">
+                    <p class="panel-title"><i class="fas fa-hand-holding"></i> 保留方块</p>
+                    <div id="hold-piece-display"></div>
+                    <p class="key-hint">按 C 键保留</p>
+                </div>
+            </div>
+            
+            <!-- 中间游戏区域 -->
+            <div class="game-board-wrapper">
+                <div class="game-board-container">
+                    <canvas id="game-board"></canvas>
+                    <div id="game-overlay" class="hidden">
+                        <div class="overlay-content">
+                            <h2 id="overlay-title"></h2>
+                            <p id="overlay-score"></p>
+                            <p id="overlay-message"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 右侧控制面板 -->
+            <div class="game-side-panel right-panel">
+                <!-- 多方块预览 -->
+                <div class="next-pieces-panel">
+                    <p class="panel-title"><i class="fas fa-forward"></i> 下一个方块</p>
+                    <div id="next-piece-display"></div>
+                    
+                    <div class="next-queue">
+                        <div id="next-piece-1" class="mini-preview"></div>
+                        <div id="next-piece-2" class="mini-preview"></div>
+                        <div id="next-piece-3" class="mini-preview"></div>
+                    </div>
+                </div>
+                
+                <div class="controls-panel">
+                    <button id="start-btn" class="control-btn"><i class="fas fa-play"></i> 开始游戏</button>
+                    <button id="pause-btn" class="control-btn"><i class="fas fa-pause"></i> 暂停</button>
+                    <button id="reset-btn" class="control-btn"><i class="fas fa-redo"></i> 重新开始</button>
+                </div>
+                
+                <div class="instructions-panel">
+                    <h3 class="panel-title"><i class="fas fa-keyboard"></i> 操作说明</h3>
+                    <div class="key-instruction">
+                        <div class="key-icon"><i class="fas fa-arrow-left"></i><i class="fas fa-arrow-right"></i></div>
+                        <div class="key-desc">左右移动</div>
+                    </div>
+                    <div class="key-instruction">
+                        <div class="key-icon"><i class="fas fa-arrow-up"></i></div>
+                        <div class="key-desc">旋转</div>
+                    </div>
+                    <div class="key-instruction">
+                        <div class="key-icon"><i class="fas fa-arrow-down"></i></div>
+                        <div class="key-desc">加速下落</div>
+                    </div>
+                    <div class="key-instruction">
+                        <div class="key-icon">空格</div>
+                        <div class="key-desc">直接落到底部</div>
+                    </div>
+                    <div class="key-instruction">
+                        <div class="key-icon">C</div>
+                        <div class="key-desc">保留方块</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="game-footer">
+            <p><i class="far fa-copyright"></i> 2024 俄罗斯方块 | 经典游戏重制版</p>
+        </div>
+    </div>
+    
+    <script src="tetris.js"></script>
+</body>
+</html> 
